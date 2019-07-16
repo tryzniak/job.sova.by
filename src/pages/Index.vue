@@ -43,6 +43,7 @@
         </div>
       </div>
       <vc-results v-if="dataDownloaded" :companies="companiesWithPage">
+        <ClientOnly>
         <vc-paginate
           :totalPage="totalPages"
           prevText="Предыдущая"
@@ -52,15 +53,18 @@
           @btnClick="changePage"
           slot="pagination"
         ></vc-paginate>
+        </ClientOnly>
       </vc-results>
     </div>
+    <ClientOnly>
     <vc-map
       v-if="dataDownloaded"
       :companies="resultCompanies"
       :mapOptions="mapOptions"
     ></vc-map>
+    </ClientOnly>
     <vc-partners></vc-partners>
-    <button-top-page></button-top-page>
+    <ClientOnly><button-top-page></button-top-page></ClientOnly>
   </div>
   </Layout>
 </template>
@@ -68,10 +72,9 @@
 <script>
 import VcFilters from "@/components/VcFilters";
 import VcResults from "@/components/VcResults";
-import VcMap from "@/components/VcMap";
+//import VcMap from "@/components/VcMap";
 import VcPartners from "@/components/VcPartners";
-import VcPaginate from "vue-paginate-al";
-import ButtonTopPage from "@/components/ButtonTopPage";
+//import VcPaginate from "vue-paginate-al";
 import axios from "axios";
 import "normalize.css";
 import initCompanies from "../data/initialCompanies";
@@ -222,10 +225,10 @@ export default {
   components: {
     VcFilters,
     VcResults,
-    VcMap,
-    VcPaginate,
+    VcMap: () => import("@/components/VcMap").catch(),
+    VcPaginate: () => import("vue-paginate-al").catch(),
     VcPartners,
-    ButtonTopPage
+    ButtonTopPage: () => import("@/components/ButtonTopPage").catch()
   },
   created() {
     this.getData();

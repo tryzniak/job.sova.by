@@ -1,5 +1,6 @@
 <template>
   <div class="vc-partners">
+   <ClientOnly>
     <tiny-slider
       :responsive="responsiveOptions"
       :autoplayButtonOutput="false"
@@ -31,6 +32,7 @@
         </a>
       </div>
     </tiny-slider>
+    </ClientOnly>
     <div class="vc-partners__controls">
       <div class="vc-partners__toggler  vc-partners__toggler--prev"></div>
       <div class="vc-partners__toggler  vc-partners__toggler--next"></div>
@@ -40,7 +42,6 @@
 
 <script>
 import "@/assets/style/tiny-slider.css";
-import TinySlider from "vue-tiny-slider";
 
 export default {
   name: "vc-partners",
@@ -55,7 +56,9 @@ export default {
       }
     };
   },
-  components: { TinySlider }
+  components: { 
+    TinySlider: () => import('vue-tiny-slider').then(m => m).catch(),
+  }
 };
 </script>
 
