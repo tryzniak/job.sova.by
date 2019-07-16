@@ -1,0 +1,31 @@
+{
+  "name": "jobsova-site",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.5.4",
+    "@babel/runtime": "^7.5.4",
+    "@babel/runtime-corejs2": "^7.5.4",
+    "@gridsome/plugin-google-analytics": "^0.1.0",
+    "@gridsome/remark-prismjs": "^0.1.0",
+    "@gridsome/source-filesystem": "^0.5.0",
+    "@gridsome/transformer-remark": "^0.3.2",
+    "axios": "^0.19.0",
+    "core-js": "^2.0.0",
+    "gridsome": "^0.6.6",
+    "normalize.css": "^8.0.1",
+    "vue-paginate-al": "^1.0.18",
+    "vue-tiny-slider": "^0.1.12",
+    "vue-yandex-maps": "0.8.12"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
+  }
+}
