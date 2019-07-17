@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     isFullFooter: function() {
-       return this.$route.path.includes("/news/")
+       return this.$route.path.includes("/news")
     }
   },
   components: {
