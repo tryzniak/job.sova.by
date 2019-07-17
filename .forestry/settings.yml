@@ -20,10 +20,10 @@ instant_preview: true
 build:
   preview_command: vuepress build -d .vuepress/dist
   publish_command: vuepress build -d .vuepress/dist
-  preview_output_directory: ".vuepress/dist"
+  preview_output_directory: dist
   output_directory: ".vuepress/dist"
-  instant_preview_command: vuepress dev -p 8080 -h 0.0.0.0
-  install_dependencies_command: yarn install
+  instant_preview_command: npm run dev
+  install_dependencies_command: npm install
   preview_docker_image: node:10
   mount_path: "/srv"
   working_dir: "/srv"
