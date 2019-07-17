@@ -11,7 +11,7 @@ sections:
   match: "**/*"
   templates:
   - blog-post
-upload_dir: content/images
+upload_dir: content/posts/images
 public_path: "/static"
 front_matter_path: ''
 use_front_matter_path: false
