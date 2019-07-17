@@ -8,7 +8,7 @@ tags:
 - Markdown
 - Cover Image
 series: false
-cover_image: "/static/mostafa-meraji-rUkMNwNXSOs-unsplash.jpg"
+cover_image: "./images/mostafa-meraji-rUkMNwNXSOs-unsplash.jpg"
 canonical_url: false
 description: Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
   Readability, however, is emphasized above all else. A Markdown-formatted document
