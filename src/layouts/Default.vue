@@ -19,7 +19,7 @@
 
     <footer class="vc-footer" v-bind:class="{ 'footer-full': isFullFooter }">
       <div class="vc-copyright">
-        © Copyright 2018 все права защищены
+        © Copyright 2019 все права защищены
       </div>
       <div class="vc-social">
         <span class="vc-social__text">Мы в социальных сетях:</span>
