@@ -13,15 +13,12 @@ fields:
   label: date
   config:
     date_format: YYYY-MM-DD
-- type: boolean
-  name: published
-  label: published
+    export_format: YYYY-MM-DD
+    required: true
+  default: now
 - type: list
   name: tags
   label: tags
-- type: boolean
-  name: series
-  label: series
 - type: file
   name: cover_image
   label: cover_image
@@ -31,5 +28,9 @@ fields:
 - type: textarea
   name: description
   label: description
+- name: published
+  type: boolean
+  label: published
+  default: true
 pages:
 - content/posts/спайдермэн-жив.md
