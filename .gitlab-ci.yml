@@ -15,5 +15,5 @@ build:
 deploy:
   stage: deploy
   script: 
-    - ls dist
-    - echo "running deploy"
+    - apt-get install lftp -y
+    - lftp -e "open ftp://vh95.hoster.by; user $FTP_USER $FTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose dist/ job.sova.by/; bye"
