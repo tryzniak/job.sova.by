@@ -32,5 +32,3 @@ fields:
   type: boolean
   label: published
   default: true
-pages:
-- content/posts/спайдермэн-жив.md
