@@ -11,6 +11,8 @@ fields:
 - type: datetime
   name: date
   label: date
+  config:
+    date_format: YYYY-MM-DD
 - type: boolean
   name: published
   label: published
