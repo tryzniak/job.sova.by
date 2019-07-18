@@ -32,11 +32,10 @@ fields:
   label: published
   default: true
 - name: author
-  type: list
+  type: text
   config:
-    use_select: false
-    min: 
-    max: 
+    required: true
+  default: Администрация
   label: author
 pages:
 - content/posts/пример-названия.md
