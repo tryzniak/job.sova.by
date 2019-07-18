@@ -32,3 +32,5 @@ fields:
   type: boolean
   label: published
   default: true
+pages:
+- content/posts/пример-названия.md
