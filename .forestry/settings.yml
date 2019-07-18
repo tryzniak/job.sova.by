@@ -18,7 +18,7 @@ use_front_matter_path: true
 file_template: ":filename:"
 instant_preview: true
 build:
-  preview_command: vuepress build -d .vuepress/dist
+  preview_command: npm run build
   publish_command: vuepress build -d .vuepress/dist
   preview_output_directory: dist
   output_directory: ".vuepress/dist"
