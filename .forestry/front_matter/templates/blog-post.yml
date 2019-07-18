@@ -2,12 +2,11 @@
 label: Blog post
 hide_body: false
 fields:
-- type: list
-  name: authors
-  label: authors
 - type: text
   name: title
   label: title
+  config:
+    required: true
 - type: datetime
   name: date
   label: date
@@ -32,5 +31,12 @@ fields:
   type: boolean
   label: published
   default: true
+- name: author
+  type: list
+  config:
+    use_select: false
+    min: 
+    max: 
+  label: author
 pages:
 - content/posts/пример-названия.md
