@@ -4,9 +4,12 @@
 
     <!-- List posts -->
     <div class="posts">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+      <PostCard
+        v-for="edge in $page.posts.edges"
+        :key="edge.node.id"
+        :post="edge.node"
+      />
     </div>
-
   </Layout>
 </template>
 
@@ -39,8 +42,8 @@
 </page-query>
 
 <script>
-import Nameplate from '~/components/Nameplate.vue'
-import PostCard from '~/components/PostCard.vue'
+import Nameplate from "~/components/Nameplate.vue";
+import PostCard from "~/components/PostCard.vue";
 
 export default {
   components: {
@@ -48,7 +51,7 @@ export default {
     PostCard
   },
   metaInfo: {
-    title: 'Hello, world!'
+    title: "Hello, world!"
   }
-}
+};
 </script>

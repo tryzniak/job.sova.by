@@ -1,7 +1,19 @@
 <template>
-      <g-link exact to="/" tag="div" class="vc-header__logo" activeClass="vc-header__logo--floating">
-        <a><img src="@/assets/images/logo.png" alt="Job Sova" width="116" height="60" /></a>
-      </g-link>
+  <g-link
+    exact
+    to="/"
+    tag="div"
+    class="vc-header__logo"
+    activeClass="vc-header__logo--floating"
+  >
+    <a
+      ><img
+        src="@/assets/images/logo.png"
+        alt="Job Sova"
+        width="116"
+        height="60"
+    /></a>
+  </g-link>
 </template>
 
 <static-query>
@@ -14,7 +26,7 @@ query {
 
 <style lang="scss">
 .vc-header__logo--floating {
-  position: fixed !important; 
+  position: fixed !important;
 }
 
 .vc-header__logo {
@@ -41,8 +53,7 @@ query {
   }
 
   .vc-header__logo--floating {
-    position: absolute !important; 
+    position: absolute !important;
   }
 }
-
 </style>

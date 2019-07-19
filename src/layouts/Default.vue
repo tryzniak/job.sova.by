@@ -14,7 +14,7 @@
     </header>
 
     <main class="main">
-      <slot/>
+      <slot />
     </main>
 
     <footer class="vc-footer" v-bind:class="{ 'footer-full': isFullFooter }">
@@ -33,13 +33,12 @@
         </div>
       </div>
     </footer>
-
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Navigation from '~/components/Navigation.vue'
+import Logo from "~/components/Logo.vue";
+import Navigation from "~/components/Navigation.vue";
 
 export default {
   metaInfo: {
@@ -47,18 +46,17 @@ export default {
   },
   computed: {
     isFullFooter: function() {
-       return this.$route.path.includes("/news")
+      return this.$route.path.includes("/news");
     }
   },
   components: {
     Logo,
     Navigation
   }
-}
+};
 </script>
 
 <style lang="scss">
-
 @font-face {
   font-family: "Roboto";
   font-style: normal;
@@ -80,5 +78,4 @@ export default {
 .footer-full {
   margin-left: 0;
 }
-
 </style>

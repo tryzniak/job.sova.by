@@ -1,16 +1,27 @@
-
 <template>
   <div>
-    <button v-on:click="isOpen = !isOpen" class="vc-header__navigation-button"></button>
+    <button
+      v-on:click="isOpen = !isOpen"
+      class="vc-header__navigation-button"
+    ></button>
     <nav v-bind:class="{ open: isOpen }" class="vc-header__navigation">
-      <g-link active-class="vc-header__navigation-item--active" exact to="/" class="vc-header__navigation-item">Главная</g-link>
-      <g-link active-class="vc-header__navigation-item--active" to="/news/" class="vc-header__navigation-item">Новости</g-link>
+      <g-link
+        active-class="vc-header__navigation-item--active"
+        exact
+        to="/"
+        class="vc-header__navigation-item"
+        >Главная</g-link
+      >
+      <g-link
+        active-class="vc-header__navigation-item--active"
+        to="/news/"
+        class="vc-header__navigation-item"
+        >Новости</g-link
+      >
       <div class="navigation__contacts">
         <span class="contacts__text">У Вас есть вопросы?</span>
         <div class="contacts__links">
-          <a class="contacts__email" href="mailto:info@sova.by"
-            >info@sova.by</a
-          >
+          <a class="contacts__email" href="mailto:info@sova.by">info@sova.by</a>
         </div>
       </div>
     </nav>
@@ -24,7 +35,7 @@ export default {
       isOpen: false
     };
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -65,7 +76,7 @@ export default {
   font-weight: 700;
   color: white;
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   text-decoration: none;
 }
 
@@ -78,8 +89,8 @@ export default {
   border-radius: 100%;
   width: 50px;
   height: 50px;
-  background: rgba(125, 125, 125, 0.4) url("../assets/images/hamburger.png") no-repeat
-    center / 60% 60%;
+  background: rgba(125, 125, 125, 0.4) url("../assets/images/hamburger.png")
+    no-repeat center / 60% 60%;
   background-color: #ffffff;
 }
 @media (max-width: 1200px) {
@@ -90,7 +101,7 @@ export default {
 
 @media (max-width: 700px) {
   .vc-header__navigation-item {
-    margin-right: 0g
+    margin-right: 0g;
   }
   .vc-header__navigation {
     display: flex;
@@ -139,7 +150,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
   .contacts__text {
     color: #44587d;

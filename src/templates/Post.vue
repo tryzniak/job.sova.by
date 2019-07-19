@@ -4,14 +4,17 @@
       <h1 class="post-title__text">
         {{ $page.post.title }}
       </h1>
-      
-      <PostMeta :post="$page.post" />
 
+      <PostMeta :post="$page.post" />
     </div>
-    
+
     <div class="post content-box">
       <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
+        <g-image
+          alt="Cover image"
+          v-if="$page.post.cover_image"
+          :src="$page.post.cover_image"
+        />
       </div>
 
       <div class="post__content" v-html="$page.post.content" />
@@ -30,9 +33,9 @@
 </template>
 
 <script>
-import PostMeta from '~/components/PostMeta'
-import PostTags from '~/components/PostTags'
-import Nameplate from '~/components/Nameplate.vue'
+import PostMeta from "~/components/PostMeta";
+import PostTags from "~/components/PostTags";
+import Nameplate from "~/components/Nameplate.vue";
 
 export default {
   components: {
@@ -40,18 +43,18 @@ export default {
     PostMeta,
     PostTags
   },
-  metaInfo () {
+  metaInfo() {
     return {
       title: this.$page.post.title,
       meta: [
         {
-          name: 'description',
+          name: "description",
           content: this.$page.post.description
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <page-query>
@@ -79,7 +82,6 @@ query Post ($path: String!) {
 }
 
 .post {
-
   &__header {
     width: calc(100% + var(--space) * 2);
     margin-left: calc(var(--space) * -1);
@@ -87,7 +89,7 @@ query Post ($path: String!) {
     margin-bottom: calc(var(--space) / 2);
     overflow: hidden;
     border-radius: var(--radius) var(--radius) 0 0;
-    
+
     img {
       width: 100%;
     }
@@ -118,7 +120,7 @@ query Post ($path: String!) {
 
 .post-comments {
   padding: calc(var(--space) / 2);
-  
+
   &:empty {
     display: none;
   }

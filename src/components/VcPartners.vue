@@ -1,37 +1,37 @@
 <template>
   <div class="vc-partners">
-   <ClientOnly>
-    <tiny-slider
-      :responsive="responsiveOptions"
-      :autoplayButtonOutput="false"
-      :controlsContainer="'.vc-partners__controls'"
-    >
-      <div class="vc-partners__item">
-        <a href="#" class="vc-partners__link">
-          <img src="../assets/images/links-logo-hoster.png" alt="" />
-        </a>
-      </div>
-      <div class="vc-partners__item">
-        <a href="#" class="vc-partners__link">
-          <img src="../assets/images/links-logo-imena.png" alt="" />
-        </a>
-      </div>
-      <div class="vc-partners__item">
-        <a href="#" class="vc-partners__link">
-          <img src="../assets/images/links-logo-irvin.png" alt="" />
-        </a>
-      </div>
-      <div class="vc-partners__item">
-        <a href="#" class="vc-partners__link">
-          <img src="../assets/images/links-logo-itsova.png" alt="" />
-        </a>
-      </div>
-      <div class="vc-partners__item">
-        <a href="#" class="vc-partners__link">
-          <img src="../assets/images/links-logo-sovaby.png" alt="" />
-        </a>
-      </div>
-    </tiny-slider>
+    <ClientOnly>
+      <tiny-slider
+        :responsive="responsiveOptions"
+        :autoplayButtonOutput="false"
+        :controlsContainer="'.vc-partners__controls'"
+      >
+        <div class="vc-partners__item">
+          <a href="#" class="vc-partners__link">
+            <img src="../assets/images/links-logo-hoster.png" alt="" />
+          </a>
+        </div>
+        <div class="vc-partners__item">
+          <a href="#" class="vc-partners__link">
+            <img src="../assets/images/links-logo-imena.png" alt="" />
+          </a>
+        </div>
+        <div class="vc-partners__item">
+          <a href="#" class="vc-partners__link">
+            <img src="../assets/images/links-logo-irvin.png" alt="" />
+          </a>
+        </div>
+        <div class="vc-partners__item">
+          <a href="#" class="vc-partners__link">
+            <img src="../assets/images/links-logo-itsova.png" alt="" />
+          </a>
+        </div>
+        <div class="vc-partners__item">
+          <a href="#" class="vc-partners__link">
+            <img src="../assets/images/links-logo-sovaby.png" alt="" />
+          </a>
+        </div>
+      </tiny-slider>
     </ClientOnly>
     <div class="vc-partners__controls">
       <div class="vc-partners__toggler  vc-partners__toggler--prev"></div>
@@ -56,8 +56,11 @@ export default {
       }
     };
   },
-  components: { 
-    TinySlider: () => import('vue-tiny-slider').then(m => m).catch(),
+  components: {
+    TinySlider: () =>
+      import("vue-tiny-slider")
+        .then(m => m)
+        .catch()
   }
 };
 </script>

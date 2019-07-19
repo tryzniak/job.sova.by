@@ -6,7 +6,13 @@
 }
 
 //псевдо блок ::before (ширина, высота, контент, дисплэй, позиционирование)
-@mixin pseudo-before($width, $height, $content: '', $display: block, $pos: absolute) {
+@mixin pseudo-before(
+  $width,
+  $height,
+  $content: "",
+  $display: block,
+  $pos: absolute
+) {
   &::before {
     width: $width;
     height: $height;
@@ -18,7 +24,13 @@
 }
 
 //псевдо блок ::after (ширина, высота, контент, дисплэй, позиционирование)
-@mixin pseudo-after($width, $height, $content: '', $display: block, $pos: absolute) {
+@mixin pseudo-after(
+  $width,
+  $height,
+  $content: "",
+  $display: block,
+  $pos: absolute
+) {
   &::after {
     width: $width;
     height: $height;
@@ -91,26 +103,37 @@
 }
 
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
+  @if type-of($number) == "number" and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
   @return $number;
 }
 
-@function calcResponsiveSize($f-min, $f-max, $w-min:$desktop__container-min-width,
-                                $w-max:$desktop__container-max-width, $units: px) {
+@function calcResponsiveSize(
+  $f-min,
+  $f-max,
+  $w-min: $desktop__container-min-width,
+  $w-max: $desktop__container-max-width,
+  $units: px
+) {
   $f-min: strip-unit($f-min);
   $f-max: strip-unit($f-max);
   $w-min: strip-unit($w-min);
   $w-max: strip-unit($w-max);
-  $k: ($f-max - $f-min)/($w-max - $w-min);
+  $k: ($f-max - $f-min)/ ($w-max - $w-min);
   $b: $f-min - $k * $w-min;
   $b: $b + $units;
   @return calc(#{$k} * 100vw + #{$b});
 }
 
 //шрифт 1-й (размер шрифта, высота строки, цвет, толщина шрифта, строчные или прописные)
-@mixin font--1($size: false,  $lh: false, $color: false, $weight: false, $transform: false) {
+@mixin font--1(
+  $size: false,
+  $lh: false,
+  $color: false,
+  $weight: false,
+  $transform: false
+) {
   font-family: $font-family--1;
   @if $size {
     font-size: $size;
@@ -130,7 +153,13 @@
 }
 
 //шрифт 2-й (размер шрифта, высота строки, цвет, толщина шрифта, строчные или прописные)
-@mixin font--2($size: false,  $lh: false, $color: false, $weight: false, $transform: false) {
+@mixin font--2(
+  $size: false,
+  $lh: false,
+  $color: false,
+  $weight: false,
+  $transform: false
+) {
   font-family: $font-family--2;
   @if $size {
     font-size: $size;
@@ -150,7 +179,13 @@
 }
 
 //шрифт 3-й (размер шрифта, высота строки, цвет, толщина шрифта, строчные или прописные)
-@mixin font--3($size: false,  $lh: false, $color: false, $weight: false, $transform: false) {
+@mixin font--3(
+  $size: false,
+  $lh: false,
+  $color: false,
+  $weight: false,
+  $transform: false
+) {
   font-family: $font-family--3;
   @if $size {
     font-size: $size;
@@ -172,7 +207,7 @@
 //шрифт иконочный  (код символа)
 @mixin font--icon($content: false) {
   @if ($content) {
-    content: '#{$content}';
+    content: "#{$content}";
   }
   font-family: $font-family--icon;
   font-weight: normal;
@@ -230,14 +265,16 @@
   @include pseudo-after($width, $height);
   position: relative;
   &::after {
-    background: linear-gradient(to right, #ffffff, #ffffff 60%, transparent 60%) 0 0 / 10px 100% repeat-x;
+    background: linear-gradient(to right, #ffffff, #ffffff 60%, transparent 60%)
+      0 0 / 10px 100% repeat-x;
   }
 }
 
 // имитация точек (толщина, цвет, длинна линии)
 @mixin dotted($weight, $color: currentColor, $width: 100%) {
   @include pseudo-after($width, $weight);
-  background: linear-gradient(to right, $color, transparent, transparent) repeat-x 0 0 / $weight * 4 $weight;
+  background: linear-gradient(to right, $color, transparent, transparent)
+    repeat-x 0 0 / $weight * 4 $weight;
 }
 
 //ограничитель размера изображения
@@ -246,15 +283,18 @@
   height: auto;
 }
 
+/*
 //выбор фонового изображения для retina
 @mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
   background-image: url($file-1x);
-  @media only screen and (min-resolution: 192dpi), // IE9-11 don't support dppx
-  only screen and (min-resolution: 2dppx) { // Standardized
+  @media only screen and (min-resolution: 192dpi),
+    // IE9-11 don't support dppx only screen and (min-resolution: 2dppx) {
+    // Standardized
     background-image: url($file-2x);
     background-size: $width-1x $height-1x;
   }
 }
+*/
 
 //задержка при скрытии выпадающего меню (состояние видимости меню)
 @mixin drop-menu-delay($show: false) {
@@ -291,7 +331,13 @@
 }
 
 //крестик для закрытия попапов (ширина блока, высота блока, длинна палочек, толщина палочек, цвет палочек)
-@mixin modal-close($Bwidth: 40px, $Bheight: 40px, $Xwidth: 26px, $Xheight: 6px, $Xcolor: red) {
+@mixin modal-close(
+  $Bwidth: 40px,
+  $Bheight: 40px,
+  $Xwidth: 26px,
+  $Xheight: 6px,
+  $Xcolor: red
+) {
   position: absolute;
   box-sizing: border-box;
   width: $Bwidth;
@@ -313,7 +359,13 @@
 }
 
 //Треугольник (цвет, направление, размер, закругление краев, позиционирование)
-@mixin triangle($color, $direction, $size: 6px, $round: false, $position: absolute) {
+@mixin triangle(
+  $color,
+  $direction,
+  $size: 6px,
+  $round: false,
+  $position: absolute
+) {
   @include pseudo($pos: $position);
   width: 0;
   height: 0;
@@ -324,12 +376,12 @@
     border-left: $size solid transparent;
     border-right: $size solid transparent;
     border-top: $size solid $color;
-    margin-top: 0 - round( $size / 2.5 );
+    margin-top: 0 - round($size / 2.5);
   } @else if $direction == top {
     border-left: $size solid transparent;
     border-right: $size solid transparent;
     border-bottom: $size solid $color;
-    margin-bottom: 0 - round( $size / 2.5 );
+    margin-bottom: 0 - round($size / 2.5);
   } @else if $direction == right {
     border-top: $size solid transparent;
     border-bottom: $size solid transparent;
@@ -400,11 +452,18 @@
 }
 
 //Значек раскрывающегося меню (цвет полос, цвет полос при наведении, ширина значка, высота значка, толщина полос, количество полос )
-@mixin hamburger( $color: black, $color-hover: red, $width: 20px, $height: 16px, $weight: 2px, $bars: 3 ) {
+@mixin hamburger(
+  $color: black,
+  $color-hover: red,
+  $width: 20px,
+  $height: 16px,
+  $weight: 2px,
+  $bars: 3
+) {
   $shadow: ();
   $hover-shadow: ();
   $spacing: ($height - ($weight * $bars)) / ($bars - 1);
-  @if unit($spacing) == 'px' {
+  @if unit($spacing) == "px" {
     $spacing: floor($spacing);
   }
   @for $i from 2 through $bars {
@@ -426,7 +485,7 @@
     height: $weight;
     background: $color;
     box-shadow: $shadow;
-    content: '';
+    content: "";
   }
   @if $color-hover {
     @for $i from 2 through $bars {
@@ -441,30 +500,71 @@
 }
 
 //градиент двухцветный горизонтальный (цвет начала, цвет конца, позиция начала, позиция конца)
-@mixin gradient-x($start-color: #555555, $end-color: #333333, $start-percent: 0%, $end-percent: 100%) {
-  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
+@mixin gradient-x(
+  $start-color: #555555,
+  $end-color: #333333,
+  $start-percent: 0%,
+  $end-percent: 100%
+) {
+  background-image: linear-gradient(
+    to right,
+    $start-color $start-percent,
+    $end-color $end-percent
+  );
   background-repeat: repeat-x;
 }
 
 //градиент двухцветный вертикальный (цвет начала, цвет конца, позиция начала, позиция конца)
-@mixin gradient-y($start-color: #555555, $end-color: #333333, $start-percent: 0%, $end-percent: 100%) {
-  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+@mixin gradient-y(
+  $start-color: #555555,
+  $end-color: #333333,
+  $start-percent: 0%,
+  $end-percent: 100%
+) {
+  background-image: linear-gradient(
+    to bottom,
+    $start-color $start-percent,
+    $end-color $end-percent
+  );
   background-repeat: repeat-x;
 }
 
 //градиент двухцветный под углом (цвет начала, цвет конца, угол)
-@mixin gradient-directional($start-color: #555555, $end-color: #333333, $deg: 45deg) {
+@mixin gradient-directional(
+  $start-color: #555555,
+  $end-color: #333333,
+  $deg: 45deg
+) {
   background-image: linear-gradient($deg, $start-color, $end-color);
   background-repeat: repeat-x;
 }
 
-@mixin gradient-x__3-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
-  background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+@mixin gradient-x__3-colors(
+  $start-color: #00b3ee,
+  $mid-color: #7a43b6,
+  $color-stop: 50%,
+  $end-color: #c3325f
+) {
+  background-image: linear-gradient(
+    to right,
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
   background-repeat: no-repeat;
 }
 
-@mixin gradient-y__3-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
-  background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
+@mixin gradient-y__3-colors(
+  $start-color: #00b3ee,
+  $mid-color: #7a43b6,
+  $color-stop: 50%,
+  $end-color: #c3325f
+) {
+  background-image: linear-gradient(
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
   background-repeat: no-repeat;
 }
 
@@ -473,6 +573,15 @@
   background-repeat: no-repeat;
 }
 
-@mixin gradient-striped($color: rgba(255,255,255,0.15), $angle: 45deg) {
-  background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+@mixin gradient-striped($color: rgba(255, 255, 255, 0.15), $angle: 45deg) {
+  background-image: linear-gradient(
+    $angle,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
 }

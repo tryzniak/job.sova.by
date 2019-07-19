@@ -1,71 +1,71 @@
 <template>
   <Layout>
-  <div class="vc-search">
-    <div class="vc-search__header">
-      <div class="vc-search__description">
-        <h1>Вакансии для людей с инвалидностью</h1>
-        <p>
-          Наш ресурс разработан инклюзивной веб-студией
-          <a class="vc-search__link" href="https://sova.by/">SovaTeam.by</a> под
-          эгидой дистанционного образовательного проекта
-          <a class="vc-search__link" href="https://sova.by/">«У Совы»</a>. Мы
-          сотрудничаем с компаниями по всей Беларуси и предоставляем максимально
-          полный объём вакансий, доступных для людей с различными формами
-          инвалидности. Возможно именно у нас Вы найдёте то, что требуется
-          именно Вам!
-        </p>
-      </div>
-      <img
-        src="@/assets/images/content.png"
-        alt="Вакансии для людей с инвалидностью"
-      />
-    </div>
-    <vc-filters
-      v-if="dataDownloaded"
-      :availableFilterValues="availableFilterValues"
-      :allCheckboxValues="allCheckboxValues"
-      @onSelect="onSelect"
-      @onResetSelect="onResetSelect"
-    ></vc-filters>
-    <div class="vc-search__body">
-      <div class="vc-search__panel">
-        <div class="vc-search__counts">
-          Количество фирм: {{ totalFilteredCompanies }}
+    <div class="vc-search">
+      <div class="vc-search__header">
+        <div class="vc-search__description">
+          <h1>Вакансии для людей с инвалидностью</h1>
+          <p>
+            Наш ресурс разработан инклюзивной веб-студией
+            <a class="vc-search__link" href="https://sova.by/">SovaTeam.by</a>
+            под эгидой дистанционного образовательного проекта
+            <a class="vc-search__link" href="https://sova.by/">«У Совы»</a>. Мы
+            сотрудничаем с компаниями по всей Беларуси и предоставляем
+            максимально полный объём вакансий, доступных для людей с различными
+            формами инвалидности. Возможно именно у нас Вы найдёте то, что
+            требуется именно Вам!
+          </p>
         </div>
-        <div class="vc-form__row">
-          На странице
-          <select class="vc-form__select" v-model="maxCompaniesPerPage">
-            <option>5</option>
-            <option>10</option>
-            <option>20</option>
-            <option>30</option>
-          </select>
-        </div>
+        <img
+          src="@/assets/images/content.png"
+          alt="Вакансии для людей с инвалидностью"
+        />
       </div>
-      <vc-results v-if="dataDownloaded" :companies="companiesWithPage">
-        <ClientOnly>
-        <vc-paginate
-          :totalPage="totalPages"
-          prevText="Предыдущая"
-          nextText="Следующая"
-          :pageRange="3"
-          :maxPageWithoutDots="8"
-          @btnClick="changePage"
-          slot="pagination"
-        ></vc-paginate>
-        </ClientOnly>
-      </vc-results>
+      <vc-filters
+        v-if="dataDownloaded"
+        :availableFilterValues="availableFilterValues"
+        :allCheckboxValues="allCheckboxValues"
+        @onSelect="onSelect"
+        @onResetSelect="onResetSelect"
+      ></vc-filters>
+      <div class="vc-search__body">
+        <div class="vc-search__panel">
+          <div class="vc-search__counts">
+            Количество фирм: {{ totalFilteredCompanies }}
+          </div>
+          <div class="vc-form__row">
+            На странице
+            <select class="vc-form__select" v-model="maxCompaniesPerPage">
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>30</option>
+            </select>
+          </div>
+        </div>
+        <vc-results v-if="dataDownloaded" :companies="companiesWithPage">
+          <ClientOnly>
+            <vc-paginate
+              :totalPage="totalPages"
+              prevText="Предыдущая"
+              nextText="Следующая"
+              :pageRange="3"
+              :maxPageWithoutDots="8"
+              @btnClick="changePage"
+              slot="pagination"
+            ></vc-paginate>
+          </ClientOnly>
+        </vc-results>
+      </div>
+      <ClientOnly>
+        <vc-map
+          v-if="dataDownloaded"
+          :companies="resultCompanies"
+          :mapOptions="mapOptions"
+        ></vc-map>
+      </ClientOnly>
+      <vc-partners></vc-partners>
+      <ClientOnly><button-top-page></button-top-page></ClientOnly>
     </div>
-    <ClientOnly>
-    <vc-map
-      v-if="dataDownloaded"
-      :companies="resultCompanies"
-      :mapOptions="mapOptions"
-    ></vc-map>
-    </ClientOnly>
-    <vc-partners></vc-partners>
-    <ClientOnly><button-top-page></button-top-page></ClientOnly>
-  </div>
   </Layout>
 </template>
 
@@ -486,14 +486,14 @@ export default {
             width: 35px;
             height: 36px;
             box-sizing: border-box;
-            background: url(../assets/images/paginate-left.svg) no-repeat 9px 6px /
-              auto 60%;
+            background: url(../assets/images/paginate-left.svg) no-repeat 9px
+              6px / auto 60%;
           }
         }
         &:last-of-type {
           a {
-            background: url(../assets/images/paginate-right.svg) no-repeat 11px 6px /
-              auto 60%;
+            background: url(../assets/images/paginate-right.svg) no-repeat 11px
+              6px / auto 60%;
           }
         }
       }

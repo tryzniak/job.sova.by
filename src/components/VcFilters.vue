@@ -3,7 +3,12 @@
     <div class="vc-filters__open"></div>
     <div class="vc-filters__wrapper">
       <div class="vc-header__logo">
-        <img src="../assets/images/logo.png" alt="Job Sova" width="116" height="60" />
+        <img
+          src="../assets/images/logo.png"
+          alt="Job Sova"
+          width="116"
+          height="60"
+        />
       </div>
       <form class="vc-form">
         <div class="vc-form__row">
@@ -348,8 +353,8 @@ function lockEmptySelect(event) {
   top: 91px;
   width: 50px;
   height: 50px;
-  background: rgba(125, 125, 125, 0.4) url("../assets/images/search.svg") no-repeat
-    center / 60% 60%;
+  background: rgba(125, 125, 125, 0.4) url("../assets/images/search.svg")
+    no-repeat center / 60% 60%;
   &:hover + .vc-filters__wrapper {
     left: 0;
   }
