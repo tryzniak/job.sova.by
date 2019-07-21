@@ -72,10 +72,8 @@
 <script>
 import VcFilters from "@/components/VcFilters";
 import VcResults from "@/components/VcResults";
-//import VcMap from "@/components/VcMap";
 import VcPartners from "@/components/VcPartners";
-//import VcPaginate from "vue-paginate-al";
-import axios from "axios";
+import companies from "@/connectors/companies";
 import "normalize.css";
 import initCompanies from "../data/initialCompanies";
 
@@ -240,22 +238,7 @@ export default {
   },
   methods: {
     async getData() {
-      const { data: arrCompanies } = await axios.get("api.php");
-      arrCompanies.forEach(company => {
-        company.recruitment = company.recruitment.split(",");
-        company.region = company.region.split(",");
-        company.coordinates = company.coordinates.split(", ");
-        company.profession = company.profession.split(",").sort();
-        company.training = company.training.split(",");
-        company.disability = company.disability.split(",").sort();
-        company.education = company.education.split(",");
-        company.employment = company.employment.split(",");
-        company.experience = company.experience.split(",");
-        company.place_work = company.place_work.split(",");
-        company.working_conditions = company.working_conditions.split(",");
-      });
-
-      this.initCompanies = arrCompanies;
+      this.initCompanies = await companies.fetchAll();
       this.dataDownloaded = true;
     },
     onSelect(obj) {
