@@ -59,26 +59,26 @@
         </div>
         <div class="vc-result__row  vc-result__row--advanced">
           <div class="vc-result__cell" v-if="companie.address">
-            <a
-              href="#"
+            <button
               class="vc-result__link"
               @click.prevent.stop="onShowDropdown($event)"
-              >Показать адрес</a
             >
-            <div class="vc-result__dropdown" @click.stop>
+              Показать адрес
+            </button>
+            <address class="vc-result__dropdown" @click.stop>
               <p>{{ companie.address }}</p>
-            </div>
+            </address>
           </div>
           <div class="vc-result__cell" v-if="companie.contacts">
-            <a
-              href="#"
+            <button
               class="vc-result__link"
               @click.prevent.stop="onShowDropdown($event)"
-              >Показать контакты</a
             >
-            <div class="vc-result__dropdown" @click.stop>
+              Показать контакты
+            </button>
+            <address class="vc-result__dropdown" @click.stop>
               <p>{{ companie.contacts }}</p>
-            </div>
+            </address>
           </div>
         </div>
       </li>
@@ -225,6 +225,8 @@ export default {
 }
 
 .vc-result__link {
+  padding: 0;
+  background-color: inherit;
   outline: none;
   border: 0;
   text-decoration: none;
@@ -241,6 +243,7 @@ export default {
 }
 
 .vc-result__dropdown {
+  font-style: normal;
   width: 0;
   z-index: 900;
   position: absolute;

@@ -12,8 +12,9 @@
       </div>
       <form class="vc-form">
         <div class="vc-form__row">
-          <div class="vc-form__caption">Регион</div>
+          <label for="region" class="vc-form__caption">Регион</label>
           <select
+            id="region"
             class="vc-form__select"
             v-model="selectsValue.region"
             name="region"
@@ -33,7 +34,7 @@
           ></a>
         </div>
         <div class="vc-form__row">
-          <div class="vc-form__caption">Вид инвалидности</div>
+          <label class="vc-form__caption">Вид инвалидности</label>
           <select
             class="vc-form__select"
             v-model="selectsValue.disability"
@@ -54,7 +55,7 @@
           ></a>
         </div>
         <div class="vc-form__row">
-          <div class="vc-form__caption">Специализация</div>
+          <label class="vc-form__caption">Специализация</label>
           <select
             class="vc-form__select"
             v-model="selectsValue.profession"
@@ -75,7 +76,7 @@
           ></a>
         </div>
         <div class="vc-form__row">
-          <div class="vc-form__caption">Образование</div>
+          <label class="vc-form__caption">Образование</label>
           <select
             class="vc-form__select"
             v-model="selectsValue.education"
@@ -95,10 +96,10 @@
             @click.prevent="onResetSelect($event)"
           ></a>
         </div>
-        <div class="vc-form__row">
-          <div class="vc-form__caption  vc-form__caption--checkbox">
+        <fieldset class="vc-form__row">
+          <legend class="vc-form__caption  vc-form__caption--checkbox">
             Наличие вакансий
-          </div>
+          </legend>
           <label
             class="vc-form__label"
             v-for="(key, ind) in allCheckboxValues.recruitment"
@@ -113,11 +114,11 @@
             />
             <span>{{ key }}</span></label
           >
-        </div>
-        <div class="vc-form__row">
-          <div class="vc-form__caption  vc-form__caption--checkbox">
+        </fieldset>
+        <fieldset class="vc-form__row">
+          <legend class="vc-form__caption  vc-form__caption--checkbox">
             Опыт работы
-          </div>
+          </legend>
           <label
             class="vc-form__label"
             v-for="(key, ind) in allCheckboxValues.experience"
@@ -132,11 +133,11 @@
             />
             <span>{{ key }}</span></label
           >
-        </div>
-        <div class="vc-form__row">
-          <div class="vc-form__caption  vc-form__caption--checkbox">
+        </fieldset>
+        <fieldset class="vc-form__row">
+          <legend class="vc-form__caption  vc-form__caption--checkbox">
             Обучение
-          </div>
+          </legend>
           <label
             class="vc-form__label"
             v-for="(key, ind) in allCheckboxValues.training"
@@ -151,11 +152,11 @@
             />
             <span>{{ key }}</span></label
           >
-        </div>
-        <div class="vc-form__row">
-          <div class="vc-form__caption  vc-form__caption--checkbox">
+        </fieldset>
+        <fieldset class="vc-form__row">
+          <legend class="vc-form__caption  vc-form__caption--checkbox">
             Безбарьерная среда
-          </div>
+          </legend>
           <label
             class="vc-form__label"
             v-for="(key, ind) in allCheckboxValues.working_conditions"
@@ -170,11 +171,11 @@
             />
             <span>{{ key }}</span></label
           >
-        </div>
-        <div class="vc-form__row">
-          <div class="vc-form__caption  vc-form__caption--checkbox">
+        </fieldset>
+        <fieldset class="vc-form__row">
+          <legend class="vc-form__caption  vc-form__caption--checkbox">
             Место работы
-          </div>
+          </legend>
           <label
             class="vc-form__label"
             v-for="(key, ind) in allCheckboxValues.place_work"
@@ -189,11 +190,11 @@
             />
             <span>{{ key }}</span></label
           >
-        </div>
-        <div class="vc-form__row">
-          <div class="vc-form__caption  vc-form__caption--checkbox">
+        </fieldset>
+        <fieldset class="vc-form__row">
+          <legend class="vc-form__caption  vc-form__caption--checkbox">
             Тип занятости
-          </div>
+          </legend>
           <label
             class="vc-form__label"
             v-for="(key, ind) in allCheckboxValues.employment"
@@ -208,7 +209,7 @@
             />
             <span>{{ key }}</span></label
           >
-        </div>
+        </fieldset>
       </form>
     </div>
   </div>
@@ -391,6 +392,9 @@ function lockEmptySelect(event) {
 }
 
 .vc-form__row {
+  border: none;
+  padding: 0;
+  margin-left: 0;
   margin-bottom: 20px;
   padding-right: 20px;
   position: relative;
