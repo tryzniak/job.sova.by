@@ -20,9 +20,9 @@
       >
       <div class="navigation__contacts">
         <span class="contacts__text">У Вас есть вопросы?</span>
-        <div class="contacts__links">
+        <address class="contacts__links">
           <a class="contacts__email" href="mailto:info@sova.by">info@sova.by</a>
-        </div>
+        </address>
       </div>
     </nav>
   </div>
@@ -156,6 +156,7 @@ export default {
   }
   .contacts__links {
     color: #44587d;
+    font-style: normal;
   }
   .contacts__email:hover {
     text-decoration: underline;

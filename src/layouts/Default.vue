@@ -5,11 +5,11 @@
       <navigation />
       <div class="vc-header__contacts  vc-contacts">
         <span class="vc-contacts__text">У Вас есть вопросы?</span>
-        <div class="vc-contacts__links">
+        <address class="vc-contacts__links">
           <a class="vc-contacts__email" href="mailto:info@sova.by"
             >info@sova.by</a
           >
-        </div>
+        </address>
       </div>
     </header>
 
